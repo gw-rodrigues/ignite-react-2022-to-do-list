@@ -1,12 +1,4 @@
-*,
-::after,
-::before {
-  padding: 0;
-  margin: 0;
-  box-sizing: content-box;
-}
-
-:root  {
+:root {
   --purple: #8284fa;
   --purple-dark: #5e60ce;
   --blue: #4ea8de;
@@ -23,9 +15,24 @@
   --danger: #e25858;
 }
 
-html {
+*,
+::after,
+::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--gray-600);
+  color: var(--gray-300);
+  -webkit-font-smoothing: antialiased;
+}
+
+body,
+input {
   font-family: 'Inter', sans-serif;
+  font-size: 1rem; /* 14px - 0.875rem */
   font-weight: 400;
   line-height: 140%;
-  font-size: 0.75rem; /* 14px - 0.875rem */
 }
