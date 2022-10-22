@@ -1,0 +1,35 @@
+.taskListHeader {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.taskListHeader div {
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 17px;
+  color: var(--blue);
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.taskListHeader div:nth-child(2) {
+  color: var(--purple);
+}
+
+.taskListHeader div span {
+  color: var(--blue);
+  background: var(--gray-400);
+  border-radius: 999px;
+  padding: 2px 8px;
+
+  height: 19px;
+
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
