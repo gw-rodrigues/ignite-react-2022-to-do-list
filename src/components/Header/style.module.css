@@ -1,2 +1,78 @@
 .header {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--gray-700);
+  position: relative;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo h1 {
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: 3rem;
+  color: var(--purple);
+}
+
+.logo span {
+  color: var(--purple-dark);
+}
+
+.newTaskBar {
+  position: absolute;
+  bottom: -1.5rem;
+  width: 100%;
+  max-width: 736px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.newTaskBar input,
+.newTaskBar button {
+  height: 100%;
+  flex: 1;
+  border-radius: 8px;
+  border: 1px solid var(--gray-700);
+}
+
+.newTaskBar input {
+  max-width: 638px;
+  color: var(--gray-500);
+  background: var(--gray-500);
+  outline: none;
+  transition: border 0.2s;
+}
+
+.newTaskBar input:focus {
+  border: 1px solid var(--purple);
+}
+
+.newTaskBar button {
+  max-width: 90px;
+  color: var(--gray-100);
+  background: var(--blue-dark);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 140%;
+  transition: background-color 0.2s;
+}
+
+.newTaskBar button:hover {
+  background: var(--blue);
 }
