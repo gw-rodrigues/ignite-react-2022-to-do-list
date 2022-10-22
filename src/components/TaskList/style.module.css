@@ -1,0 +1,16 @@
+.taskList {
+  width: 100%;
+  max-width: 736px;
+  margin-top: 5.6rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.taskList header {
+}
+
+.taskList .content {
+}
+
+.taskList .content article {
+}
