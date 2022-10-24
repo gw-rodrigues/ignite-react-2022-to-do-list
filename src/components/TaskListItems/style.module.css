@@ -1,19 +1,6 @@
-.taskListItems {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  margin-top: 1.5rem;
-
-  list-style: none;
-}
-
-.taskListItems li {
-  flex: 1;
-
+.taskListItem {
   width: 100%;
-  max-width: 736px;
-  height: 72px;
+  min-height: 72px;
   background: var(--gray-500);
   border-radius: 8px;
   padding: 1rem;
@@ -21,24 +8,21 @@
 
   display: flex;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: space-between;
   flex-wrap: wrap;
 
   border: 1px solid var(--gray-400);
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.06);
 }
 
-li + li {
+.taskListItem + .taskListItem {
   margin-top: 0.75rem;
 }
 
-.taskListItems li input[type='checkbox'] {
+.taskListItem input[type='checkbox'] {
   -webkit-appearance: none;
   appearance: none;
   background-color: transparent;
-
-  padding: 0;
-  margin: 0;
 
   display: grid;
   place-content: center;
@@ -53,21 +37,22 @@ li + li {
   border: 2px solid var(--blue);
   color: var(--gray-100);
   font-weight: 700;
-  margin-top: 0.3rem;
+
+  margin-top: 0.2rem;
 
   transition: 120ms border ease-in-out;
 }
 
-.taskListItems li input[type='checkbox']:hover,
-.taskListItems li input[type='checkbox']:focus {
+.taskListItem input[type='checkbox']:hover,
+.taskListItem input[type='checkbox']:focus {
   border: 2px solid var(--blue-dark);
 }
 
-.taskListItems li input[type='checkbox']:checked {
+.taskListItem input[type='checkbox']:checked {
   border: 2px solid var(--purple-dark);
 }
 
-.taskListItems li input[type='checkbox']::before {
+.taskListItem input[type='checkbox']::before {
   content: '√';
   width: 17.45px;
   height: 17.45px;
@@ -81,26 +66,28 @@ li + li {
   align-items: center;
 }
 
-.taskListItems li input[type='checkbox']:checked::before {
+.taskListItem input[type='checkbox']:checked::before {
   transform: scale(1);
 }
 
-.taskListItems li p {
+.taskListItem p {
+  flex: 1;
   font-weight: 400;
   font-size: 0.875rem;
   line-height: 140%;
   color: var(--gray-100);
-
+  text-decoration: none;
   max-width: 632px;
+  transition: text-decoration 0.2s, color 0.2s;
 }
 
-.taskListItems li .concluded {
+.taskListItem .completed {
   text-decoration: line-through;
   color: var(--gray-300);
 }
 
-.taskListItems li button {
-  margin-top: 0.3rem;
+.taskListItem button {
+  margin-top: 0.2rem;
   cursor: pointer;
   background: none;
   border: none;
@@ -109,7 +96,7 @@ li + li {
   outline: none;
 }
 
-.taskListItems li button:hover,
-.taskListItems li button:focus {
+.taskListItem button:hover,
+.taskListItem button:focus {
   color: var(--danger);
 }
