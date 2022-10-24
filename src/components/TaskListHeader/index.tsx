@@ -14,7 +14,12 @@ export function TaskListHeader({
         Tarefas criadas <span>{totalTasks}</span>
       </div>
       <div>
-        Concluídas<span>{totalTasksCompleted}</span>
+        Concluídas
+        <span>
+          {totalTasksCompleted
+            ? `${totalTasksCompleted} de ${totalTasks}`
+            : '0'}
+        </span>
       </div>
     </header>
   );
