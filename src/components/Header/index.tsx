@@ -1,9 +1,26 @@
-import styles from './style.module.css';
-
-import Logo from '/logo.svg';
+import { useState, ChangeEvent, FormEvent } from 'react';
 import { PlusCircle } from 'phosphor-react';
 
-export function Header() {
+import Logo from '/logo.svg';
+import styles from './style.module.css';
+
+interface IHeader {
+  handleCreateTasks: (title: string) => void;
+}
+
+export function Header({ handleCreateTasks }: IHeader) {
+  const [newTask, setNewTask] = useState('');
+
+  function handleInputChange(element: ChangeEvent<HTMLInputElement>) {
+    setNewTask(element.target.value);
+  }
+
+  function handleFormSubmit(element: FormEvent<HTMLFormElement>) {
+    element.preventDefault();
+    handleCreateTasks(newTask);
+    setNewTask('');
+  }
+
   return (
     <header className={styles.header}>
       <div className={styles.logo}>
@@ -12,12 +29,18 @@ export function Header() {
           to<span>do</span>
         </h1>
       </div>
-      <div className={styles.newTaskBar}>
-        <input type="text" placeholder="Adicione uma nova tarefa" />
-        <button>
+
+      <form onSubmit={handleFormSubmit} className={styles.newTaskBar}>
+        <input
+          type="text"
+          placeholder="Adicione uma nova tarefa"
+          onChange={handleInputChange}
+          value={newTask}
+        />
+        <button type="submit">
           Criar <PlusCircle size={16} />
         </button>
-      </div>
+      </form>
     </header>
   );
 }
