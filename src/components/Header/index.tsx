@@ -13,7 +13,7 @@ export function Header() {
         </h1>
       </div>
       <div className={styles.newTaskBar}>
-        <input type="text" />
+        <input type="text" placeholder="Adicione uma nova tarefa" />
         <button>
           Criar <PlusCircle size={16} />
         </button>
