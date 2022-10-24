@@ -19,6 +19,30 @@ export function App() {
         'Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.',
       isCompleted: false,
     },
+    {
+      id: 2,
+      title:
+        'Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.',
+      isCompleted: false,
+    },
+    {
+      id: 3,
+      title:
+        'Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.',
+      isCompleted: false,
+    },
+    {
+      id: 4,
+      title:
+        'Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.',
+      isCompleted: true,
+    },
+    {
+      id: 5,
+      title:
+        'Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.',
+      isCompleted: true,
+    },
   ]);
 
   function handleCreateTasks(title: string) {
@@ -28,20 +52,24 @@ export function App() {
       isCompleted: false,
     };
     setTasks([...tasks, newTask]);
-    console.log(tasks);
   }
 
   function handleCompleteTask(id: number) {
-    const completedTask = tasks.map((task) => {
+    const completedTasks = tasks.map((task) => {
       if (task.id === id) {
         task.isCompleted = !task.isCompleted;
       }
       return task;
     });
-    setTasks(completedTask);
+    setTasks(completedTasks);
   }
 
-  function handleRemoveTask(id: number) {}
+  function handleRemoveTask(id: number) {
+    const removedTasks = tasks.filter((task) => {
+      if (task.id !== id) return task;
+    });
+    setTasks(removedTasks);
+  }
 
   return (
     <div className={styles.container}>
