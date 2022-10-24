@@ -17,10 +17,16 @@ export function TaskList({
   handleRemoveTask,
 }: ITaskList) {
   const isListEmpty = tasks.length === 0;
+  const totalTasksCompleted = tasks.reduce((total, task) => {
+    return task.isCompleted ? total++ : total;
+  }, 0);
 
   return (
     <main className={styles.taskList}>
-      <TaskListHeader />
+      <TaskListHeader
+        totalTasks={tasks.length}
+        totalTasksCompleted={totalTasksCompleted}
+      />
       {isListEmpty ? (
         <TaskListEmpty />
       ) : (

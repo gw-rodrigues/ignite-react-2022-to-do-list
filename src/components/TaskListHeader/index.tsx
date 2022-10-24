@@ -1,12 +1,20 @@
 import styles from './style.module.css';
-export function TaskListHeader() {
+
+interface ITaskListHeader {
+  totalTasks: number;
+  totalTasksCompleted: number;
+}
+export function TaskListHeader({
+  totalTasks,
+  totalTasksCompleted,
+}: ITaskListHeader) {
   return (
     <header className={styles.taskListHeader}>
       <div>
-        Tarefas criadas <span>0</span>
+        Tarefas criadas <span>{totalTasks}</span>
       </div>
       <div>
-        Concluídas<span>0</span>
+        Concluídas<span>{totalTasksCompleted}</span>
       </div>
     </header>
   );
