@@ -1,19 +1,35 @@
 import { Trash } from 'phosphor-react';
+import { TTask } from '../../App';
 import styles from './style.module.css';
 
-export function TaskListItems() {
+interface ITaskListItems {
+  task: TTask;
+  handleCompleteTask: (id: number) => void;
+  handleRemoveTask: (id: number) => void;
+}
+
+export function TaskListItems({
+  task,
+  handleCompleteTask,
+  handleRemoveTask,
+}: ITaskListItems) {
   return (
-    <ul className={styles.taskListItems}>
-      <li>
-        <input type="checkbox" />
-        <p>
-          Integer urna interdum massa libero auctor neque turpis turpis semper.
-          Duis vel sed fames integer.
-        </p>
-        <button>
-          <Trash size={16} />
-        </button>
-      </li>
-    </ul>
+    <li className={styles.taskListItem}>
+      <input
+        type="checkbox"
+        checked={task.isCompleted}
+        onChange={() => {
+          handleCompleteTask(task.id);
+        }}
+      />
+      <p className={task.isCompleted ? styles.completed : ''}>{task.title}</p>
+      <button
+        onClick={() => {
+          handleRemoveTask(task.id);
+        }}
+      >
+        <Trash size={16} />
+      </button>
+    </li>
   );
 }
