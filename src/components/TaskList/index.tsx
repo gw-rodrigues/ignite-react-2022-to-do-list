@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { TTask } from '../../App';
 import { TaskListEmpty } from '../TaskListEmpty';
 import { TaskListHeader } from '../TaskListHeader';
@@ -17,9 +17,18 @@ export function TaskList({
   handleRemoveTask,
 }: ITaskList) {
   const isListEmpty = tasks.length === 0;
-  const totalTasksCompleted = tasks.reduce((total, task) => {
-    return task.isCompleted ? total++ : total;
-  }, 0);
+  const [totalTasksCompleted, setTotalTasksCompleted] = useState(0);
+
+  function getTotalTasksCompleted() {
+    const totalCompleted = tasks.reduce((total, task) => {
+      return task.isCompleted ? total + 1 : total;
+    }, 0);
+    setTotalTasksCompleted(totalCompleted);
+  }
+
+  useEffect(() => {
+    getTotalTasksCompleted();
+  }, [tasks]);
 
   return (
     <main className={styles.taskList}>
