@@ -15,6 +15,22 @@
   gap: 0.75rem;
 }
 
+.logo img {
+  animation: 7s ease-out infinite fly;
+}
+
+@keyframes fly {
+  50% {
+    transform: translate(50%, -90%) rotate(0) scale3d(1, 0.8, 1);
+  }
+  25% {
+    transform: translate(-30%, -20%) rotate(15deg) scale3d(0.9, 1, 0.8);
+  }
+  0% {
+    transform: translate(0%) rotate(0) scale3d(0);
+  }
+}
+
 .logo h1 {
   font-size: 2rem;
   font-weight: 900;
