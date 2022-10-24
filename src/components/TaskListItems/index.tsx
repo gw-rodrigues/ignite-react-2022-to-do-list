@@ -4,8 +4,8 @@ import styles from './style.module.css';
 
 interface ITaskListItems {
   task: TTask;
-  handleCompleteTask: (id: number) => void;
-  handleRemoveTask: (id: number) => void;
+  handleCompleteTask: (id: string) => void;
+  handleRemoveTask: (id: string) => void;
 }
 
 export function TaskListItems({

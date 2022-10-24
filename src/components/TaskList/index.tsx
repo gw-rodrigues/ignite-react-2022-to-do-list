@@ -7,8 +7,8 @@ import styles from './style.module.css';
 
 interface ITaskList {
   tasks: TTask[];
-  handleCompleteTask: (id: number) => void;
-  handleRemoveTask: (id: number) => void;
+  handleCompleteTask: (id: string) => void;
+  handleRemoveTask: (id: string) => void;
 }
 
 export function TaskList({

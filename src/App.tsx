@@ -6,7 +6,7 @@ import { TaskList } from './components/TaskList';
 import styles from './styles/App.module.css';
 
 export type TTask = {
-  id: number;
+  id: string;
   title: string;
   isCompleted: boolean;
 };
@@ -14,47 +14,58 @@ export type TTask = {
 export function App() {
   const [tasks, setTasks] = useState<TTask[]>([
     {
-      id: 1,
+      id: '1',
       title:
         'Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.',
       isCompleted: false,
     },
     {
-      id: 2,
+      id: '2',
       title:
         'Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.',
       isCompleted: false,
     },
     {
-      id: 3,
+      id: '3',
       title:
         'Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.',
       isCompleted: false,
     },
     {
-      id: 4,
+      id: '4',
       title:
         'Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.',
       isCompleted: true,
     },
     {
-      id: 5,
+      id: '5',
       title:
         'Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.',
       isCompleted: true,
     },
   ]);
 
+  /**
+   * temp ids
+   */
+  const [tempId, setTempId] = useState(String(tasks.length));
+
   function handleCreateTasks(title: string) {
+    /**
+     * temp id
+     */
+    const newId = tempId + 1;
+    setTempId(newId);
+
     const newTask: TTask = {
-      id: tasks.length + 1,
+      id: newId,
       title,
       isCompleted: false,
     };
     setTasks([...tasks, newTask]);
   }
 
-  function handleCompleteTask(id: number) {
+  function handleCompleteTask(id: string) {
     const completedTasks = tasks.map((task) => {
       if (task.id === id) {
         task.isCompleted = !task.isCompleted;
@@ -64,7 +75,7 @@ export function App() {
     setTasks(completedTasks);
   }
 
-  function handleRemoveTask(id: number) {
+  function handleRemoveTask(id: string) {
     const removedTasks = tasks.filter((task) => {
       if (task.id !== id) return task;
     });
