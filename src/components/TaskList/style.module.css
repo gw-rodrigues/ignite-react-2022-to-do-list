@@ -15,3 +15,9 @@
 
   list-style: none;
 }
+
+@media (max-width: 785px) {
+  .taskList {
+    padding: 0 2rem 5rem 2rem;
+  }
+}

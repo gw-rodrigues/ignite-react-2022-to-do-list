@@ -1,8 +1,10 @@
 .taskListHeader {
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-start;
+  gap: 1rem;
 }
 
 .taskListHeader div {
@@ -34,4 +36,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media (max-width: 375px) {
+  .taskListHeader {
+    justify-content: center;
+    margin-bottom: 1.5rem;
+  }
 }

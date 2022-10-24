@@ -100,3 +100,11 @@
 .taskListItem button:focus {
   color: var(--danger);
 }
+
+@media (max-width: 375px) {
+  .taskListItem {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+  }
+}

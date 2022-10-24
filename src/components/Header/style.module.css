@@ -33,6 +33,7 @@
   max-width: 736px;
   height: 54px;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
@@ -40,14 +41,16 @@
 
 .newTaskBar input,
 .newTaskBar button {
+  width: 100%;
   height: 100%;
-  flex: 1;
   border-radius: 8px;
   border: 1px solid var(--gray-700);
 }
 
 .newTaskBar input {
+  flex: 1 0 100%;
   max-width: 638px;
+  width: 100%;
   color: var(--gray-300);
   background: var(--gray-500);
   outline: none;
@@ -61,6 +64,7 @@
 }
 
 .newTaskBar button {
+  flex: 1 0 100%;
   max-width: 90px;
   color: var(--gray-100);
   background: var(--blue-dark);
@@ -77,4 +81,25 @@
 
 .newTaskBar button:hover {
   background: var(--blue);
+}
+
+@media (max-width: 785px) {
+  .newTaskBar {
+    padding: 0 2rem;
+  }
+  .newTaskBar input {
+    flex-basis: 70%;
+  }
+}
+
+@media (max-width: 450px) {
+  .header {
+    margin-bottom: 3rem;
+  }
+  .newTaskBar input {
+    flex-basis: 100%;
+  }
+  .newTaskBar button {
+    max-width: 100%;
+  }
 }
