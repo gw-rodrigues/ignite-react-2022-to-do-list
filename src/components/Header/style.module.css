@@ -48,14 +48,16 @@
 
 .newTaskBar input {
   max-width: 638px;
-  color: var(--gray-500);
+  color: var(--gray-300);
   background: var(--gray-500);
   outline: none;
   transition: border 0.2s;
+  padding: 1rem;
 }
 
 .newTaskBar input:focus {
   border: 1px solid var(--purple);
+  color: var(--gray-100);
 }
 
 .newTaskBar button {
