@@ -36,6 +36,7 @@ export function Header({ handleCreateTasks }: IHeader) {
           placeholder="Adicione uma nova tarefa"
           onChange={handleInputChange}
           value={newTask}
+          required
         />
         <button type="submit">
           Criar <PlusCircle size={16} />
